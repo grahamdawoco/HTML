@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>"MAGIC CARD SEARCH ENGINE"</title>
+    <h1><strong>"Enter hither a valid magic card shoudst thou darest"</strong></h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $.ajax({
+          url: "http://127.0.0.1:5000/json/movie/" + $( "#titleq" ).val(),
+          dataType: "jsonp",
+          success: function( data ) {
+              var items = [];
+              $.each( data['Card_name'], function( key, val ) {
+                items.push( "<li>" + val.name + "; " + val._text + "; " + val.manaCost + "</li>" );
+              });
+   
+              $( "<ul/>", {
+                "class": "my-new-list",
+                html: items.join( "" )
+              }).appendTo( "#jsonresult" );
+          }
+        });
+    });
+    $("button").click(function(){
+        $.ajax({
+          url: "http://127.0.0.1:5000/json/card/" + $( "#titleq" ).val(),
+          dataType: "jsonp",
+          success: function( data ) {
+              var items = [];
+              $.each( data['Card_name'], function( key, val ) {
+                items.push( "<li>" + val.rarity + "; " + val.flavor + "; " + val.multiverseid + "</li>" );
+              });
+
+              $( "<ul/>", {
+                "class": "my-new-list",
+                html: items.join( "" )
+              }).appendTo( "#jsonresult" );
+          }
+        });
+    });
+});
+</script>
+</head>
+<body bgcolor="#DC143C">
+
+<button>Get Card JSON</button>
+<input type="text" id="titleq"></input>
+
+<div id="jsonresult"></div>
+
+</body>
+</html>
+
