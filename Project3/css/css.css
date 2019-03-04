@@ -1,0 +1,67 @@
+
+.logo{
+    float: left;
+    width: 25%;
+}
+.current{
+    border: thick solid black;
+}
+li {
+    background-color: gold;
+    padding: 4px;
+    border: thin solid red;
+    margin: 0.5em 0;
+    
+  }
+nav li{
+    display: inline-block;
+    width: 15%;
+    text-align: center;
+}
+  
+  header {
+    border: thin solid red;
+      position:fixed;
+      width:100%;
+  }
+
+
+  header > img {  /* LOGO */
+    float: left;
+    width: 25%;
+    margin: 0 10px 0 0;
+    padding: 0;
+  }
+  
+  ul {
+    background-color: teal;
+  }
+  
+  a:hover,
+  a:visited,
+  a:link,
+  a:focus {
+    color: black;
+    text-decoration: none;
+  }
+  
+  
+  a[href="#"] {
+    color: blue;
+    font-weight: bold;
+  }
+  
+  footer {
+    background-color: teal;
+    padding: 1em 0 1em 0;
+
+  }
+  footer a{
+      background-color:blueviolet;
+  }
+  footer div {
+    background-color: aqua;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
